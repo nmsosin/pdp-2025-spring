@@ -9,6 +9,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
+    publicPath: '/pdp-2025-spring/',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.png', ],
