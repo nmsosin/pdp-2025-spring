@@ -1,16 +1,17 @@
-import { makeAutoObservable } from 'mobx'
-import { Quote } from '../entities/quote'
+import { makeAutoObservable } from 'mobx';
+
+import { Quote } from '../entities/quote';
 
 export class FavoritesStore {
-  favorites: Quote[] = []
+  favorites: Quote[] = [];
 
   constructor() {
-    makeAutoObservable(this)
+    makeAutoObservable(this);
   }
 
   add(quote: Quote) {
     if (!this.isFavorite(quote)) {
-      this.favorites.push(quote)
+      this.favorites.push(quote);
     }
   }
 
@@ -19,17 +20,17 @@ export class FavoritesStore {
   }
 
   toggle(quote: Quote) {
-    this.isFavorite(quote) ? this.remove(quote) : this.add(quote)
+    this.isFavorite(quote) ? this.remove(quote) : this.add(quote);
   }
 
   isFavorite(quote: Quote) {
     return this.favorites.some(
       item => item.quote === quote.quote && item.author === quote.author
-    )
+    );
   }
 
   get all() {
-    return this.favorites
+    return this.favorites;
   }
 }
 

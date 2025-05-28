@@ -1,7 +1,11 @@
-import { observer } from 'mobx-react-lite'
-import { Button, Container, Typography } from '@mui/material'
-import { quoteStore } from '@/domains/quote/stores/quoteStore'
-import { QuoteFilter, QuoteCard } from '../../components'
+import { Button, Container, Typography } from '@mui/material';
+import { observer } from 'mobx-react-lite';
+
+import { quoteStore } from '@/domains/quote/stores/quoteStore';
+
+import { QuoteFilter, QuoteCard } from '../../components';
+
+
 
 export const HomePage = observer(() => {
   const currentQuote = quoteStore.current;
@@ -22,5 +26,5 @@ export const HomePage = observer(() => {
       </Button>
       <QuoteCard quote={currentQuote} />
     </Container>
-  )
+  );
 });

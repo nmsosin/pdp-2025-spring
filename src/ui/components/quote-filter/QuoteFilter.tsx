@@ -1,20 +1,21 @@
-import { observer } from 'mobx-react-lite'
-import { quoteStore } from '@/domains/quote/stores/quoteStore'
-import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material'
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { observer } from 'mobx-react-lite';
+
+import { quoteStore } from '@/domains/quote/stores/quoteStore';
 
 export const QuoteFilter = observer(() => {
   const { sizes, genres, sentiments, filters, setFilter } = quoteStore;
 
   const handleGenreChange = (e: SelectChangeEvent) => {
-  quoteStore.setFilter('genre', e.target.value);
+  setFilter('genre', e.target.value);
 };
 
 const handleLengthChange = (e: SelectChangeEvent) => {
-  quoteStore.setFilter('length', e.target.value);
+  setFilter('length', e.target.value);
 };
 
 const handleSentimentChange = (e: SelectChangeEvent) => {
-  quoteStore.setFilter('sentiment', e.target.value);
+  setFilter('sentiment', e.target.value);
 };
 
   return (

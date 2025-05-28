@@ -10,11 +10,13 @@ import {
   FormControl,
   InputLabel,
   Select,
-} from '@mui/material'
-import { useForm, Controller } from 'react-hook-form'
-import { favoritesStore } from '@/domains/quote/stores/favoritesStore'
-import { quoteStore } from '@/domains/quote/stores/quoteStore'
-import { Quote } from '@/domains'
+} from '@mui/material';
+import { observer } from 'mobx-react-lite';
+import { useForm, Controller } from 'react-hook-form';
+
+import { Quote } from '@/domains';
+import { favoritesStore } from '@/domains/quote/stores/favoritesStore';
+import { quoteStore } from '@/domains/quote/stores/quoteStore';
 
 type AddQuoteDialogProps = {
   open: boolean
@@ -31,8 +33,8 @@ type FormValues = {
   length: 'короткая' | 'средняя' | 'длинная'
 }
 
-export const AddQuoteDialog = ({ open, onClose }: AddQuoteDialogProps) => {
-  const { register, handleSubmit, control, reset } = useForm<FormValues>()
+export const AddQuoteDialog = observer(({ open, onClose }: AddQuoteDialogProps) => {
+  const { register, handleSubmit, control, reset } = useForm<FormValues>();
 
   const onSubmit = (data: FormValues) => {
     const newQuote: Quote = {
@@ -44,14 +46,14 @@ export const AddQuoteDialog = ({ open, onClose }: AddQuoteDialogProps) => {
       genre: data.genre,
       sentiment: data.sentiment,
       length: data.length,
-    }
+    };
 
     favoritesStore.add(newQuote);
     quoteStore.addNewQuote(newQuote);
     
-    reset()
-    onClose()
-  }
+    reset();
+    onClose();
+  };
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
@@ -90,5 +92,5 @@ export const AddQuoteDialog = ({ open, onClose }: AddQuoteDialogProps) => {
         </DialogActions>
       </form>
     </Dialog>
-  )
-}
+  );
+});

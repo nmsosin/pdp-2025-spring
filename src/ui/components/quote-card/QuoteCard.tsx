@@ -1,9 +1,11 @@
-import { Card, CardContent, Typography, Button, Box, Chip, IconButton } from '@mui/material';
-import { observer } from 'mobx-react-lite';
-import { favoritesStore } from '@/domains/quote/stores/favoritesStore';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { Card, CardContent, Typography, Box, Chip, IconButton } from '@mui/material';
+import { observer } from 'mobx-react-lite';
+
 import { Quote } from '@/domains';
+import { favoritesStore } from '@/domains/quote/stores/favoritesStore';
+
 
 export const QuoteCard = observer((({ quote: currentQuote }: { quote: Quote | null }) => {
   if (!currentQuote) {
@@ -64,5 +66,5 @@ export const QuoteCard = observer((({ quote: currentQuote }: { quote: Quote | nu
         </Box>
       </Box>
     </Card>
-  )
+  );
 }));

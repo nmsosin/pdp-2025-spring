@@ -1,9 +1,11 @@
-import { observer } from 'mobx-react-lite'
-import { Container, Typography, Button, Stack } from '@mui/material'
-import { favoritesStore } from '@/domains';
-import { useNavigate } from 'react-router-dom';
-import { AddQuoteDialog, QuoteCard } from '@/ui/components';
+import { Container, Typography, Button, Stack } from '@mui/material';
+import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { favoritesStore } from '@/domains';
+import { AddQuoteDialog, QuoteCard } from '@/ui/components';
+
 
 export const FavoritesPage = observer(() => {
   const favorites = favoritesStore.favorites;
@@ -46,5 +48,5 @@ export const FavoritesPage = observer(() => {
       
       <AddQuoteDialog open={addQuoteModalOpen} onClose={closeQuoteModal} />
     </>
-  )
+  );
 });

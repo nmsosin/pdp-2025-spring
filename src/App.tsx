@@ -1,9 +1,13 @@
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { FavoritesPage, HomePage } from '@/ui/pages';
 import { AppBar, Toolbar, Button } from '@mui/material';
+import { observer } from 'mobx-react-lite';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+import { FavoritesPage, HomePage } from '@/ui/pages';
+
 import Feather from './assets/icons/feather.png';
 
-export const App = () => {
+
+export const App = observer(() => {
   return (
     <Router>
       <AppBar position="static" sx={{ p: 2 }}>
@@ -19,5 +23,5 @@ export const App = () => {
         <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
     </Router>
-  )
-}
+  );
+});
