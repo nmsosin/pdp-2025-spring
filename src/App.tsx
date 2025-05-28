@@ -1,17 +1,23 @@
-import React from 'react';
-import { observer } from 'mobx-react-lite';
-import { Button, Container, Typography } from '@mui/material';
-import { CounterStore } from './store/CounterStore';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { FavoritesPage, HomePage } from '@/ui/pages';
+import { AppBar, Toolbar, Button } from '@mui/material';
+import Feather from './assets/icons/feather.png';
 
-const store = new CounterStore();
-
-export const App = observer(() => {
+export const App = () => {
   return (
-    <Container>
-      <Typography variant="h4">Counter: {store.count}</Typography>
-      <Button variant="contained" color="primary" onClick={() => store.increment()}>
-        Increment
-      </Button>
-    </Container>
-  );
-});
+    <Router>
+      <AppBar position="static" sx={{ p: 2 }}>
+        <Toolbar>
+          <img src={Feather} alt="Логотип"  width={64} />
+          <Button color="inherit" component={Link} to="/" sx={{ ml: 5 }}>Главная</Button>
+          <Button color="inherit" component={Link} to="/favorites">Избранное</Button>
+        </Toolbar>
+      </AppBar>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+      </Routes>
+    </Router>
+  )
+}
