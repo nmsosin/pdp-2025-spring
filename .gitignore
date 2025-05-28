@@ -1,0 +1,77 @@
+# Node.js зависимости
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# TypeScript компиляция
+*.tsbuildinfo
+dist/
+build/
+out/
+
+# Webpack output
+*.cache/
+.cache/
+.vite/
+.vitepress/
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Логи и отладочные файлы
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ESLint и Prettier кеш
+.eslintcache
+.prettierignore
+
+# Jest тесты
+coverage/
+jest.config.js
+jest.setup.js
+.vitest/
+.vitest_cache/
+
+# Next.js
+.next/
+.vercel/
+
+# Storybook
+.storybook/out/
+storybook-static/
+
+# Браузерные билды
+*.bundle.js
+*.bundle.js.map
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.npmrc
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Git
+*.orig
